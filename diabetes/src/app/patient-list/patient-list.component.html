@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="header">
+    <h2 class="title">👩‍⚕️ Liste des Patients</h2>
+    <div class="logo-container " (click)="goToDashboard()">
+      <img src="assets/logo.png" alt="App Logo" class="app-logo clickable-logo">
+          </div>
+  </div>
+
+  <!-- Barre de recherche -->
+  <input
+    type="text"
+    placeholder="🔍 Rechercher un patient..."
+    [(ngModel)]="searchTerm"
+    (input)="applySearch()"
+    class="search-bar"
+  />
+
+  <!-- Liste des patients -->
+  <ul class="patient-list">
+    <li *ngFor="let patient of filteredPatients" class="patient-item">
+      <a [routerLink]="['/patient', patient.id]" class="patient-link">
+        🧑‍⚕️ <span>{{ patient.nom }} {{ patient.prenom }}</span>
+      </a>
+      <button (click)="editPatient(patient)" class="btn edit">✏️ Edit</button>
+    </li>
+  </ul>
+
+  <!-- Formulaire d'édition -->
+  <div *ngIf="selectedPatient" class="edit-form">
+    <h3>✏️ Éditer {{ selectedPatient.nom }} {{ selectedPatient.prenom }}</h3>
+    <form (ngSubmit)="savePatient()">
+      <label>Nom:</label>
+      <input type="text" [(ngModel)]="selectedPatient.nom" name="nom" required />
+
+      <label>Prénom:</label>
+      <input type="text" [(ngModel)]="selectedPatient.prenom" name="prenom" required />
+
+      <label>Sexe:</label>
+      <select [(ngModel)]="selectedPatient.sexe" name="sexe" required>
+        <option value="M">Masculin</option>
+        <option value="F">Féminin</option>
+      </select>
+
+      <label>Date de naissance:</label>
+      <input type="date" [(ngModel)]="selectedPatient.dateNaissance" name="dateNaissance" required />
+
+      <div class="form-actions">
+        <button type="submit" class="btn save">💾 Sauvegarder</button>
+        <button type="button" class="btn cancel" (click)="cancelEdit()">❌ Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>

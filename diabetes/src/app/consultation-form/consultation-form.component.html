@@ -1,0 +1,55 @@
+  <div class="page-header">
+  <div class="logo-container" (click)="goToDashboard()">
+  <img src="assets/logo.png" alt="App Logo" class="app-logo clickable-logo">
+</div>
+<h1 class="page-title">Nouvelle Consultation</h1>
+</div>
+
+<form (ngSubmit)="save()" #form="ngForm">
+
+  <div>
+    <label>Poids (kg) :</label>
+    <input type="number" [(ngModel)]="consultation.poids" name="poids" required>
+  </div>
+
+  <div>
+    <label>Taille (cm) :</label>
+    <input type="number" [(ngModel)]="consultation.taille" name="taille" required>
+  </div>
+
+  <div>
+    <label>Glycémie à jeun :</label>
+    <input type="number" [(ngModel)]="consultation.glycemieAJeun" name="glycemieAJeun" required>
+  </div>
+
+  <div>
+    <label>HbA1c :</label>
+    <input type="number" step="0.1" [(ngModel)]="consultation.hba1c" name="hba1c" required>
+  </div>
+
+  <div>
+    <label>Tabac :</label>
+    <select [(ngModel)]="consultation.tabac" name="tabac" required>
+      <option value="never">Jamais</option>
+      <option value="former">Ancien fumeur</option>
+      <option value="current">Fumeur actuel</option>
+      <option value="not current">Plus maintenant</option>
+      <option value="ever">A fumé</option>
+      <option value="No Info">Pas d'info</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Tension :</label>
+    <input type="checkbox" [(ngModel)]="consultation.tension" name="tension">
+  </div>
+
+  <div>
+    
+    <label>Maladie cardiaque :</label>
+    <input type="checkbox" [(ngModel)]="consultation.heartDisease" name="heartDisease">
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Enregistrer</button>
+
+</form>

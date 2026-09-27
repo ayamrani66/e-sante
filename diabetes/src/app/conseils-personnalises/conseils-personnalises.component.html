@@ -1,0 +1,64 @@
+<div class="page-header">
+  <div class="logo-container" (click)="goToDashboard()">
+  <img src="assets/logo.png" alt="App Logo" class="app-logo clickable-logo">
+</div>
+<h1 class="page-title">Conseils personnalisés</h1>
+</div>
+<div class="conseils-container" *ngIf="dernieresMesures">
+
+  <!-- Mesures récentes -->
+  <div class="mesures-section">
+    <h3>Mesures récentes</h3>
+    <div class="mesure-card" [ngClass]="getColorClass(dernieresMesures.hba1c, 'hba1c')">
+  <span class="icon">🧪</span>
+  <span>HbA1c: {{ dernieresMesures.hba1c }} %</span>
+</div>
+
+    <div class="mesure-card" [ngClass]="getColorClass(dernieresMesures.glycemieAJeun, 'glycemie')">
+      <span class="icon">🩸</span>
+      <span>Glycémie à jeun: {{ dernieresMesures.glycemieAJeun }} mg/dL</span>
+    </div>
+
+    <div class="mesure-card" [ngClass]="getColorClass(dernieresMesures.tension, 'tension')">
+      <span class="icon">💓</span>
+      <span>Tension: {{ dernieresMesures.tension ? 'Élevée' : 'Normale' }}</span>
+    </div>
+
+    <div class="mesure-card" [ngClass]="getColorClass(dernieresMesures.imc, 'imc')">
+      <span class="icon">⚖️</span>
+      <span>IMC: {{ dernieresMesures.imc }}</span>
+    </div>
+  </div>
+
+  <!-- ✅ Prédiction des risques indépendante -->
+  <div class="card" *ngIf="risks">
+  <h3>Risques détectés :</h3>
+  <ul>
+    <li *ngFor="let key of riskKeys">
+      {{ key }} : 
+      <span [ngClass]="{'text-danger': risks[key] === 1, 'text-success': risks[key] === 0}">
+        {{ risks[key] === 1 ? '⚠️ Oui' : '✅ Non' }}
+      </span>
+    </li>
+  </ul>
+</div>
+
+
+  <!-- Conseils générés -->
+  <div class="conseils-section"  *ngIf="(conseils && conseils.length > 0)">
+    <h3>Recommandations</h3>
+    <div class="conseil-card" [ngClass]="{'danger': isDanger(c)}" *ngFor="let c of conseils">
+      <h4>{{ c.titre }}</h4>
+      <p>{{ c.contenu }}</p>
+    </div>
+    <div class="conseil-card" [ngClass]="{'danger': isDanger(alerte)}" *ngFor="let alerte of alertes">
+      <h4>{{ alerte.categorie }}</h4>
+      <p *ngIf="alerte.conseilMedecin">{{ alerte.conseilMedecin }}</p>
+      </div>
+    </div>
+  </div>
+
+<!-- Loader -->
+<div *ngIf="!dernieresMesures" class="loading">
+  Chargement des données patient...
+</div>

@@ -1,0 +1,129 @@
+.conseils-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #1d3557;
+  margin-bottom: 0;
+}
+
+.mesures-section, .conseils-section {
+  margin-bottom: 30px;
+}
+h3{
+  color: #1d3557;
+}
+
+.mesure-card {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.mesure-card .icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+/* Couleurs dynamiques */
+.green { background-color: #4CAF50; }
+.orange { background-color: #FF9800; }
+.red { background-color: #F44336; }
+
+.conseil-card {
+  border-left: 5px solid #1d3557;
+  background-color: #f0f4f8;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.conseil-card h4 {
+  margin: 0 0 8px 0;
+  color: #1d3557;
+}
+
+.conseil-card p {
+  margin: 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+.loading {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  margin-top: 50px;
+}
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #eee;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #27ae60, #e74c3c);
+}
+.conseil-card.danger {
+  border-left: 5px solid red;    /* rouge si critique */
+  background-color: #ffe5e5;     /* fond léger rouge */
+}
+.conseil-card.danger h4 {
+  color: red;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* centre tout horizontalement */
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+  position: relative;
+}
+
+.page-title {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1d3557; /* bleu cohérent avec ton thème */
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  }
+.logo-container {
+  margin: 0;
+  margin-left: 200px;
+  margin-bottom: 10px;
+  text-align: left;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.app-logo {
+  width: 130px;
+  height: auto;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.6)); }
+  50% { filter: drop-shadow(0 0 15px rgba(230, 57, 70, 0.8)); }
+  100% { filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.6)); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

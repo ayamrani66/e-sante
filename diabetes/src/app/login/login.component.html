@@ -1,0 +1,58 @@
+
+<div class="auth-container">
+  <div class="background-bubbles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="logo-container">
+    <img src="assets/logo.png" alt="App Logo" class="app-logo">
+  </div>
+  <div class="auth-card">
+    <div class="auth-header">
+      <h2>{{ isLoginMode ? 'Connexion' : 'Inscription' }}</h2>
+      <p>{{ isLoginMode ? 'Bienvenue, connectez-vous pour continuer' : 'Créez un compte pour commencer' }}</p>
+    </div>
+
+    <!-- Formulaire Login -->
+    <form *ngIf="isLoginMode" (ngSubmit)="onSubmit()" class="auth-form">
+      <input type="email" placeholder="📧 Email" [(ngModel)]="login.email" name="loginEmail" required>
+      <input type="password" placeholder="🔒 Mot de passe" [(ngModel)]="login.motdepasse" name="loginPassword" required>
+      <button type="submit" class="btn-primary">Se connecter</button>
+      <p *ngIf="error" class="error">{{ error }}</p>
+    </form>
+
+    <!-- Formulaire Inscription -->
+    <form *ngIf="!isLoginMode" (ngSubmit)="onRegister()" class="auth-form">
+      <div class="grid">
+        <input type="text" placeholder="👤 Nom" [(ngModel)]="register.nom" name="nom" required>
+        <input type="text" placeholder="✨ Prénom" [(ngModel)]="register.prenom" name="prenom" required>
+      </div>
+
+      <select [(ngModel)]="register.sexe" name="sexe" required>
+        <option value="" disabled selected>-- Sexe --</option>
+        <option value="Homme">Homme ♂</option>
+        <option value="Femme">Femme ♀</option>
+      </select>
+
+      <input type="date" [(ngModel)]="register.dateNaissance" name="dateNaissance" required>
+      <input type="email" placeholder="📧 Email" [(ngModel)]="register.email" name="email" required>
+      <input type="password" placeholder="🔒 Mot de passe" [(ngModel)]="register.motdepasse" name="motdepasse" required>
+
+      <button type="submit" class="btn-primary">S'inscrire</button>
+      <p *ngIf="error" class="error">{{ error }}</p>
+    </form>
+
+    <!-- Toggle -->
+    <p class="switch">
+      <span *ngIf="isLoginMode">
+        Pas encore inscrit ? <a (click)="isLoginMode = false">Créer un compte</a>
+      </span>
+      <span *ngIf="!isLoginMode">
+        Déjà inscrit ? <a (click)="isLoginMode = true">Se connecter</a>
+      </span>
+    </p>
+  </div>
+</div>

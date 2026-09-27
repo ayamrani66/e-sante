@@ -1,0 +1,224 @@
+.dashboard {
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1d3557;
+}
+
+/* Statistiques */
+.stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.stat-card {
+  flex: 1 1 200px;
+  max-width: 250px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  text-decoration: none;
+  color: #1d3557; /* texte sombre */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+.stat-card h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #1d3557;
+}
+
+.stat-card p {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Couleurs selon type */
+.stat-card.diabetic { background: #fee2e2; color: #b91c1c; }
+.stat-card.non-diabetic { background: #d1fae5; color: #065f46; }
+
+/* Hover effet */
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  background: #fef3c7; /* couleur douce de survol */
+}
+
+.stat-card p.red {
+  color: #ef4444;
+}
+
+.stat-card p.green {
+  color: #10b981;
+}
+
+/* Graphiques */
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.chart-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.chart-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1d3557;
+}
+
+/* Actions */
+.toolbar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Couleurs par type */
+.btn.blue {
+  background: #2563eb;
+}
+.btn.blue:hover {
+  background: #1d4ed8;
+}
+
+.btn.green {
+  background: #10b981;
+}
+.btn.green:hover {
+  background: #059669;
+}
+
+.btn.red {
+  background: orangered;
+}
+.btn.red:hover {
+  background: red;
+}
+
+.btn.gray {
+  background: #6b7280;
+}
+.btn.gray:hover {
+  background: #4b5563;
+}
+.stat-card {
+  cursor: pointer;
+}
+
+.patient-list-container {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+}
+/* Bouton */
+.notification-btn {
+  position: relative;
+  display: inline-block;
+  background-color: rgb(0, 255, 255); 
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Badge / notification */
+.notification-btn .badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: red; 
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white; /* optionnel : contour pour plus de contraste */
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* centre tout horizontalement */
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+  position: relative;
+}
+
+.page-title {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1d3557; /* bleu cohérent avec ton thème */
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  }
+.logo-container {
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: left;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.app-logo {
+  width: 130px;
+  height: auto;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.6)); }
+  50% { filter: drop-shadow(0 0 15px rgba(230, 57, 70, 0.8)); }
+  100% { filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.6)); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

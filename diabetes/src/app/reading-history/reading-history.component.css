@@ -1,0 +1,110 @@
+.history-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.styled-table thead {
+  background: #1d3557;
+  color: #fff;
+}
+
+.styled-table th, 
+.styled-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.styled-table tr:hover {
+  background: #f4f8ff;
+  transition: background 0.3s;
+}
+
+.bad {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-dashboard {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-dashboard:hover {
+  background: #219150;
+  transform: scale(1.05);
+}
+
+/* Anim fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* centre tout horizontalement */
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+  position: relative;
+}
+
+.page-title {
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1d3557; /* bleu cohérent avec ton thème */
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  }
+.logo-container {
+  margin: 0;
+  margin-left: 200px;
+  margin-bottom: 10px;
+  text-align: left;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.app-logo {
+  width: 130px;
+  height: auto;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.6)); }
+  50% { filter: drop-shadow(0 0 15px rgba(230, 57, 70, 0.8)); }
+  100% { filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.6)); }
+}

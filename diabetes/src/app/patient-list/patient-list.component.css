@@ -1,0 +1,174 @@
+/* Conteneur principal */
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Animation douce */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header avec actions */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* Boutons généraux */
+.btn {
+  padding: 10px 18px;
+  margin-left: 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn.add {
+  background: linear-gradient(90deg, #16a34a, #15803d);
+}
+
+.app-logo {
+  width: 130px;
+  height: auto;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.6)); }
+  50% { filter: drop-shadow(0 0 15px rgba(230, 57, 70, 0.8)); }
+  100% { filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.6)); }
+}
+
+.btn.edit {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.btn.save {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.btn.cancel {
+  background: linear-gradient(90deg, #ef4444, #b91c1c);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* Barre de recherche */
+.search-bar {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 25px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+  outline: none;
+}
+
+/* Liste patients */
+.patient-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.patient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.patient-item:hover {
+  background: #f3f4f6;
+  transform: translateX(5px);
+}
+
+/* Lien patient */
+.patient-link {
+  text-decoration: none;
+  color: #111827;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Formulaire édition */
+.edit-form {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f3f4f6;
+  border-radius: 16px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+  animation: fadeIn 0.4s ease;
+}
+
+.edit-form h3 {
+  margin-bottom: 15px;
+  color: #1f2937;
+}
+
+.edit-form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.edit-form input,
+.edit-form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  transition: border 0.3s ease;
+}
+
+.edit-form input:focus,
+.edit-form select:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.form-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+.logo-container {
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: left;
+  animation: fadeIn 1.5s ease-in-out;
+}

@@ -1,0 +1,54 @@
+<div class="patient-card" *ngIf="patient" #pdfContent>
+  <!-- Header -->
+  <div class="patient-header">
+    <div class="logo-container" (click)="goToDashboard()">
+  <img src="assets/logo.png" alt="App Logo" class="app-logo clickable-logo">
+</div>
+    <h2>👤 {{ patient.prenom }} {{ patient.nom }}</h2>
+    <p class="dob">Né(e) le : {{ patient.dateNaissance }}</p>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions">
+    <a class="btn yellow" [routerLink]="['/patient', patient.id, 'readings']">📊 Mesures quotidiennes</a>
+    <a class="btn green" [routerLink]="['/patient', patient.id, 'consultation', 'new']">➕ Nouvelle consultation</a>
+    <a class="btn gray" routerLink="/patient">⬅️ Retour</a>
+  </div>
+
+  <!-- Historique des consultations -->
+  <div class="card consultations">
+    <h3>📝 Historique des consultations</h3>
+    <ul class="consultation-list">
+      <li *ngFor="let c of consultations">
+        <div class="consultation-item">
+          <span class="date">📅 {{ c.dateConsultation }}</span>
+          <span class="metric">Glycémie : <strong>{{ c.glycemieAJeun }}</strong></span>
+          <span class="metric">HbA1c : <strong>{{ c.hba1c }}</strong></span>
+          <span class="metric">IMC : <strong>{{ c.imc }}</strong></span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Charts -->
+  <div class="charts-grid">
+    <div class="chart-card">
+      <h3>📈 Glycémie</h3>
+      <canvas #glycemieChart></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>🧪 HbA1c</h3>
+      <canvas #hba1cChart></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>⚖️ IMC</h3>
+      <canvas #imcChart></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>🚨 Risques</h3>
+      <canvas #riskChart></canvas>
+    </div>
+  </div>
+
+  <button class="btn gray" (click)="generatePDF()">📄 Exporter en PDF</button>
+</div>

@@ -1,0 +1,54 @@
+<div class="page-header">
+  <div class="logo-container" (click)="goToDashboard()">
+  <img src="assets/logo.png" alt="App Logo" class="app-logo clickable-logo">
+</div>
+<h1 class="page-title">📊 Historique des mesures</h1>
+</div>
+<div class="history-container">
+
+  <table *ngIf="readings.length > 0" class="styled-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Avant petit-déj</th>
+        <th>Après petit-déj</th>
+        <th>Avant déjeuner</th>
+        <th>Après déjeuner</th>
+        <th>Avant dîner</th>
+        <th>Après dîner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of readings">
+        <td>{{ r.datePrise | date:'dd/MM/yyyy' }}</td>
+        <td [ngClass]="{'bad': r.glycAvantPetitDejeuner > 180 || r.glycAvantPetitDejeuner < 70}">
+          {{ r.glycAvantPetitDejeuner }}
+        </td>
+        <td [ngClass]="{'bad': r.glycApresPetitDejeuner > 180 || r.glycApresPetitDejeuner < 70}">
+          {{ r.glycApresPetitDejeuner }}
+        </td>
+        <td [ngClass]="{'bad': r.glycAvantDejeuner > 180 || r.glycAvantDejeuner < 70}">
+          {{ r.glycAvantDejeuner }}
+        </td>
+        <td [ngClass]="{'bad': r.glycApresDejeuner > 180 || r.glycApresDejeuner < 70}">
+          {{ r.glycApresDejeuner }}
+        </td>
+        <td [ngClass]="{'bad': r.glycAvantDiner > 180 || r.glycAvantDiner < 70}">
+          {{ r.glycAvantDiner }}
+        </td>
+        <td [ngClass]="{'bad': r.glycApresDiner > 180 || r.glycApresDiner < 70}">
+          {{ r.glycApresDiner }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="readings.length === 0" class="empty-msg">
+    ⚠️ Aucune mesure enregistrée pour le moment.
+  </p>
+
+  <!-- Bouton vers le dashboard -->
+  <div class="actions">
+    <button class="btn-dashboard" (click)="goBack()">Retour</button>
+  </div>
+</div>

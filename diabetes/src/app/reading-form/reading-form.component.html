@@ -1,0 +1,45 @@
+<div class="page-header">
+  <div class="logo-container" (click)="goToDashboard()">
+  <img src="assets/logo.png" alt="App Logo" class="app-logo clickable-logo">
+</div>
+<h1 class="page-title">Mesures quotidiennes</h1>
+</div>
+<div class="reading-container">
+
+  <form (ngSubmit)="save()" #form="ngForm" class="reading-form">
+    <div class="field">
+      <label>Glycémie avant Petit Déjeuner (mg/dL) :</label>
+      <input type="number" [(ngModel)]="reading.glycAvantPetitDejeuner" name="glycAvantPetitDejeuner" required>
+    </div>
+
+    <div class="field">
+      <label>Glycémie après Petit Déjeuner (mg/dL) :</label>
+      <input type="number" [(ngModel)]="reading.glycApresPetitDejeuner" name="glycApresPetitDejeuner" required>
+    </div>
+
+    <div class="field">
+      <label>Glycémie avant Déjeuner (mg/dL) :</label>
+      <input type="number" [(ngModel)]="reading.glycAvantDejeuner" name="glycAvantDejeuner" required>
+    </div>
+
+    <div class="field">
+      <label>Glycémie après Déjeuner (mg/dL) :</label>
+      <input type="number" [(ngModel)]="reading.glycApresDejeuner" name="glycApresDejeuner" required>
+    </div>
+
+    <div class="field">
+      <label>Glycémie avant Dîner (mg/dL) :</label>
+      <input type="number" [(ngModel)]="reading.glycAvantDiner" name="glycAvantDiner" required>
+    </div>
+
+    <div class="field">
+      <label>Glycémie après Dîner (mg/dL) :</label>
+      <input type="number" [(ngModel)]="reading.glycApresDiner" name="glycApresDiner" required>
+    </div>
+
+    <div class="actions">
+      <button type="submit" [disabled]="form.invalid" class="btn-save">💾 Enregistrer</button>
+      <button type="button" (click)="goToDashboard()" class="btn-cancel">🏠 Retour</button>
+    </div>
+  </form>
+</div>

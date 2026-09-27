@@ -1,0 +1,21 @@
+<div class="page-header">
+  <div class="logo-container" (click)="goToDashboard()">
+  <img src="assets/logo.png" alt="App Logo" class="app-logo clickable-logo">
+</div>
+<h1 class="page-title">Alertes</h1>
+</div>
+<div class="alert-card" *ngFor="let alerte of alertes">
+  <div class="alert-header">
+    <h3>{{ alerte.categorie }}</h3>
+    <p class="alert-message">{{ alerte.message }}</p>
+  </div>
+
+  <textarea [(ngModel)]="alerte.conseilMedecin" placeholder="Écrire un conseil..."></textarea>
+
+  <button (click)="envoyerConseil(alerte)">
+    Envoyer <span class="send-icon">📤</span>
+  </button>
+</div>
+<div class="no-alerts" *ngIf="alertes.length === 0">
+  <p>Aucune alerte pour le moment.</p>
+</div>

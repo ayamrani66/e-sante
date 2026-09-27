@@ -1,0 +1,46 @@
+<div class="dashboard">
+  <div class="page-header">
+    <div class="logo-container" (click)="goToDashboard()">
+  <img src="assets/logo.png" alt="App Logo" class="app-logo clickable-logo">
+</div>
+<h1 class="page-title">Suivi des patients</h1>
+</div>
+
+  <nav class="toolbar">
+    <a class="btn blue" routerLink="/patient">👥 Liste des patients</a>
+    <a class="btn green" [routerLink]="['/login']" [queryParams]="{mode: 'register'}">➕ Ajouter patient</a>
+    <a class="btn red notification-btn" routerLink="/alerts">⚠️ Alertes
+      <span class="badge">{{ alertes.length }}</span>
+    </a>
+  </nav>
+
+  <div class="stats">
+  <a [routerLink]="['/patient']" [queryParams]="{filter: 'all'}" class="stat-card">
+    <h4>Total patients</h4>
+    <p>{{ totalPatients }}</p>
+  </a>
+
+  <a [routerLink]="['/patient']" [queryParams]="{filter: 'diabetic'}" class="stat-card diabetic">
+    <h4>Diabétiques</h4>
+    <p>{{ diabeticCount }}</p>
+  </a>
+
+  <a [routerLink]="['/patient']" [queryParams]="{filter: 'nonDiabetic'}" class="stat-card non-diabetic">
+    <h4>Non diabétiques</h4>
+    <p>{{ nonDiabeticCount }}</p>
+  </a>
+</div>
+
+
+  <div class="charts">
+    <div class="chart-card">
+      <h3>Répartition des types de diabète</h3>
+      <canvas #pieCanvas></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>Patients les plus à risque</h3>
+      <canvas #barCanvas></canvas>
+    </div>
+  </div>
+</div>

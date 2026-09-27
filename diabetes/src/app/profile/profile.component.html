@@ -1,0 +1,37 @@
+<div class="page-header">
+  <div class="logo-container" (click)="goToDashboard()">
+  <img src="assets/logo.png" alt="App Logo" class="app-logo clickable-logo">
+</div>
+<h1 class="page-title">👤 Profil Patient</h1>
+</div>
+<div *ngIf="patient" class="profile-card">
+  <!-- Affichage -->
+  <div class="profile-info" *ngIf="!editMode">
+    <h3>{{ patient.nom }} {{ patient.prenom }}</h3>
+    <p>🎂 <b>Date de naissance :</b> {{ patient.dateNaissance }}</p>
+    <p>⚧ <b>Sexe :</b> {{ patient.sexe }}</p>
+    <p>📧 <b>Email :</b> {{ user.email }}</p>
+  </div>
+
+  <!-- Mode édition -->
+  <div class="edit-form" *ngIf="editMode">
+    <input [(ngModel)]="patient.nom" placeholder="Nom" />
+    <input [(ngModel)]="patient.prenom" placeholder="Prénom" />
+    <input [(ngModel)]="patient.dateNaissance" type="date" />
+    <select [(ngModel)]="patient.sexe">
+      <option value="Homme">Homme</option>
+      <option value="Femme">Femme</option>
+    </select>
+    <input [(ngModel)]="user.email" type="email" placeholder="Email" />
+    <input [(ngModel)]="user.motdepasse" type="password" placeholder="Mot de passe" />
+  </div>
+
+  <!-- Boutons -->
+  <div class="actions">
+    <button class="btn edit" (click)="toggleEdit()">
+      {{ editMode ? '❌ Annuler' : '✏️ Éditer' }}
+    </button>
+    <button *ngIf="editMode" class="btn save" (click)="saveChanges()">💾 Enregistrer</button>
+    <button class="btn logout" (click)="logout()">🚪 Déconnexion</button>
+  </div>
+</div>

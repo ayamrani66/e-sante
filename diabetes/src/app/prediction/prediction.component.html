@@ -1,0 +1,46 @@
+<form (ngSubmit)="onSubmit()">
+  <label>Gender</label>
+  <select [(ngModel)]="patient.gender" name="gender">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+
+  <label>Age</label>
+  <input type="number" [(ngModel)]="patient.age" name="age">
+
+  <label>BMI</label>
+  <input type="number" [(ngModel)]="patient.bmi" name="bmi">
+
+  <label>HbA1c level</label>
+  <input type="number" [(ngModel)]="patient.HbA1c_level" name="hba1c">
+
+  <label>Blood Glucose</label>
+  <input type="number" [(ngModel)]="patient.blood_glucose_level" name="glucose">
+
+  <label>Hypertension</label>
+  <select [(ngModel)]="patient.hypertension" name="hypertension">
+    <option [value]="0">No</option>
+    <option [value]="1">Yes</option>
+  </select>
+
+  <label>Heart Disease</label>
+  <select [(ngModel)]="patient.heart_disease" name="heart">
+    <option [value]="0">No</option>
+    <option [value]="1">Yes</option>
+  </select>
+
+  <label>Smoking</label>
+  <select [(ngModel)]="patient.smoking_history" name="smoking">
+    <option value="never">Never</option>
+    <option value="former">Former</option>
+    <option value="current">Current</option>
+  </select>
+
+  <button type="submit">Predict</button>
+</form>
+
+<div *ngIf="result">
+  <p>Diabète: {{ result.estDiabetique ? '✅ Oui' : '🟢 Non' }} (probabilité: {{ result.score }})</p>
+  <p>Type: {{ result.type }}</p>
+  <p>Risques: {{ result.risques | json }}</p>
+</div>

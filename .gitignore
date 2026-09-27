@@ -1,0 +1,32 @@
+# === Node / Angular (diabetes/) ===
+diabetes/node_modules/
+diabetes/.angular/
+diabetes/dist/
+diabetes/out-tsc/
+npm-debug.log
+yarn-error.log
+
+# === Java / Maven (PFA_Diabete/) ===
+PFA_Diabete/target/
+PFA_Diabete/.mvn/wrapper/maven-wrapper.jar
+PFA_Diabete/HELP.md
+
+# === Données MySQL brutes — ne jamais versionner (données sensibles) ===
+PFA_Diabete/*.ibd
+PFA_Diabete/*.frm
+
+# === Modèles ML volumineux (à héberger séparément, ex: Git LFS ou lien externe) ===
+Models/*.pkl
+
+# === IDE ===
+.vscode/
+.idea/
+*.iml
+.classpath
+.factorypath
+.project
+.settings/
+
+# === Système ===
+.DS_Store
+Thumbs.db
